@@ -1,0 +1,12 @@
+<div class="header_nav">
+  <h1><%= link_to image_tag("GroceryMap_logo2.jpeg", class:"logo"), :root %></h1>
+
+  <div class="header_content">
+    <%= render 'shared/search', q: @q, url: result_path %>
+    <div>
+      <span><%= link_to "ログイン", :new_user_session, class: "register" %></span>
+      <span>/</span>
+      <span><%= link_to "新規登録", :new_user_registration, class: "register" %></span>
+    </div>
+  </div>
+</div>

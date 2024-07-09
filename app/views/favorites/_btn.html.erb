@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+  <% if store.favorited_by?(current_user) %>
+    <%= form_with(url: store_favorites_path(store), method: :delete, local: true) do |f| %>
+      <%= f.submit '♥', class: 'faved' %>
+    <% end %>
+  <% else %>
+    <%= form_with(url: store_favorites_path(store), method: :post, local: true) do |f| %>
+      <%= f.submit '♡', class: 'unfav' %>
+    <% end %>
+  <% end %>
+<% end %>

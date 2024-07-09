@@ -1,0 +1,31 @@
+<div class="table_container">
+  <div class="favorite_container">
+    <h1><%= @store.name %></h1>
+    <span class="fav_btn"><%= render "favorites/btn", store: @favStore %></span>
+  </div>
+  <div class="store_info">
+    <table>
+      <tr>
+        <th class="common_th">住所：</th>
+        <td class="common_td"><%= @store.formatted_address %></td>
+      </tr>
+      <tr>
+        <th class="common_th">電話番号：</th>
+        <td class="common_td"><%= @store.formatted_phone_number %></td>
+      </tr>
+      <tr>
+        <th class="common_th">営業時間:</th>
+        <td class="common_td">
+          <ul>
+            <% @store.opening_hours['weekday_text'].each do |hour| %>
+              <li><%= hour %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="product_container">
+    <%= render template: 'products/index' %>
+  </div>
+</div>

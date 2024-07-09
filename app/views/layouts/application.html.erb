@@ -2,15 +2,30 @@
 <html>
   <head>
     <title>Grocerymap</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if user_signed_in? %>
+        <%= render "shared/login" %>
+      <% else %>
+        <%= render "shared/register" %>
+      <% end %>
+    </header>
+    <section class="main_container">
+      <%= render "shared/flash" %>
+      <%= yield %>
+    </section>
+    <footer>
+      <h1><%= link_to image_tag("GroceryMap_logo2.jpeg", class:"logo"), :root %></h1>
+    </footer>
   </body>
 </html>

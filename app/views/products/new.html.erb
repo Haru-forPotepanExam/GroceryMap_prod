@@ -1,0 +1,29 @@
+<div class="table_container">
+  <div class="form_main_container">
+    <p class="title_style">商品を追加する</p>
+    <%= render "shared/error", obj: @product %>
+
+    <% if user_signed_in? %>
+      <div class="form_sub_container">
+        <%= form_with(model: @product, loocal: true) do |f| %>
+          <div class="field">
+            <%= f.label :category_id, "カテゴリー：", class:"label_style" %>
+            <%= f.select :category_id, [["野菜", "1"], ["穀物(米・シリアル等)", "2"], ["水産物", "3"], ["肉", "4"], ["卵・乳製品・大豆製品", "5"], ["果物", "6"], ["粉類", "7"], ["その他", "8"]], include_blank: "選択してください" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :name, "商品名：", class:"label_style" %>
+            <%= f.text_field :name %>
+          </div>
+          
+          <div class="actions">
+            <%= f.submit "投稿", class:"form_btn" %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>商品情報の投稿にはログインが必要です。</p>
+    <% end %>
+    <%= link_to "戻る", :back, class:"back_link" %>
+  </div>
+</div>

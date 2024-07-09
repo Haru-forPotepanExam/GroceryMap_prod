@@ -1,0 +1,110 @@
+// Place all the styles related to the stores controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.store_container {
+  height: 500px;
+}
+
+.map_container {
+  height: 100%;
+  margin: 0 30px;
+  padding: 0;
+  display: flex;
+  align-content: center;
+}
+
+#map {
+  height: 100%;
+  width: 80%;
+  margin-top: 5px;
+}
+
+#listing {
+  width: 20%;
+  height: 100%;
+  overflow: auto;
+  cursor: pointer;
+  overflow-x: hidden;
+}
+
+table {
+  font-size: 15px;
+}
+
+.store-search {
+  width: 50%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  z-index: 1;
+  margin: 0 30px;
+}
+
+#findstores {
+  font-size: 20px;
+  color: #337e55;
+  font-weight: bold;
+}
+
+#locationField {
+  -webkit-box-flex: 1 1 190px;
+  -ms-flex: 1 1 190px;
+  flex: 1 1 190px;
+  margin: 0 10px;
+}
+
+#autocomplete {
+  width: 100%;
+}
+
+.placeIcon {
+  width: 20px;
+  height: 34px;
+  margin: 4px;
+}
+
+.storeIcon {
+  width: 50%;
+  height: 50%;
+  text-align: right;
+}
+
+#resultsTable {
+  border-collapse: collapse;
+  margin-top: 5px;
+}
+
+.iw_table_row {
+  height: 12px;
+}
+
+.iw_attribute_name {
+  font-weight: bold;
+  text-align: right;
+}
+
+.iw_table_icon {
+  text-align: right;
+}
+
+// store/show
+.favorite_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav_btn {
+  margin-left: 15px;
+}
+
+.store_info {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}

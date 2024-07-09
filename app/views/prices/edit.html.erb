@@ -1,0 +1,30 @@
+<div class="table_container">
+  <div class="form_main_container">
+    <p class="other_style"><span class="title_style"><%= @store.name %></span> の 
+    <span class="title_style"><%= @product.name %></span> の価格情報を編集する</p>
+    <% if user_signed_in? %>
+      <%= form_with(model: @price, local: true) do |f| %>
+        <div class="field">
+          <%= f.label :price_value, "商品価格:" %>
+          <%= f.number_field :price_value %>
+        </div>
+        <div class="field">
+          <%= f.label :quantity, "個数：" %>
+          <%= f.number_field :quantity %>
+        </div>
+        <div class="field">
+          <%= f.label :weight, "グラム：" %>
+          <%= f.number_field :weight %>
+        </div>
+        <div class="field">
+          <%= f.label :memo, "備考：" %>
+          <%= f.text_area :memo %>
+        </div>
+        <div class="field">
+          <%= link_to "キャンセル", :back, class:"back_link" %>
+          <%= f.submit "保存", class:"form_btn"  %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

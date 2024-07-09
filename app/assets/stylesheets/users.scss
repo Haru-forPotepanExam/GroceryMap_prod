@@ -1,0 +1,59 @@
+#profile-edit, #account-edit {
+  display: none;
+}
+
+#profile-edit.active, #account-edit.active {
+  display: block;
+}
+
+#profile-button {
+  background-color: #4ca748;
+  border-radius: 9999px;
+  border: 2px white;
+  color: white;
+  padding: 10px;
+}
+
+#account-button {
+  background-color: #5c794d;
+  border-radius: 9999px;
+  border: 2px white;
+  color: white;
+  padding: 10px;
+}
+
+.user_container {
+  margin: auto;
+}
+
+.user_container h2 {
+  margin-bottom: 30px;
+}
+
+.link_container {
+  margin-top: 15px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_container .field {
+  color: black;
+}
+
+.field label, i {
+  margin: 10px;
+}
+
+.profile_container {
+  margin: 0 200px;
+}
+
+.profile_container .common_th {
+  padding: 10px;
+}
+
+.cancel_account {
+  display: flex;
+  justify-content: space-between;
+}

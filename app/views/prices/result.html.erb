@@ -1,0 +1,39 @@
+<div class="table_container">
+  <% if @prices.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th class="center_th">投稿日時</th>
+          <th class="center_th">商品名</th>
+          <th class="center_th">商品価格(100gあたり)</th>
+          <th class="center_th">商品価格(1個あたり)</th>
+          <th class="center_th">購入価格</th>
+          <th class="center_th">備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @prices.each do |price| %>
+          <tr>
+            <td class="common_td"><%= price.created_at.to_s(:datetime_jp) %></td>
+            <td class="common_td"><%= price.product.name %></td>
+            <% if price.prices_per_gram.present? %>
+              <td class="common_td"><%= price.prices_per_gram %>円/100g</td>
+            <% else %>
+              <td class="common_td">価格情報なし</td>
+            <% end %>
+            <% if price.prices_per_quantity.present? %>
+              <td class="common_td"><%= price.prices_per_quantity %>円/1個</td>
+            <% else %>
+              <td class="common_td">価格情報なし</td>
+            <% end %>
+            <td class="common_td"><%= price.price_value %>円</td>
+            <td class="common_td"><%= price.memo if price.memo.present? %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>価格情報は投稿されていません。</p>
+  <% end %>
+  <p><%= link_to "戻る", :back, class:"back_link" %></p>
+</div>

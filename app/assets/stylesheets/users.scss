@@ -1,25 +1,19 @@
-#profile-edit, #account-edit {
-  display: none;
-}
-
-#profile-edit.active, #account-edit.active {
-  display: block;
-}
-
-#profile-button {
+.profile-button {
   background-color: #4ca748;
   border-radius: 9999px;
   border: 2px white;
   color: white;
   padding: 10px;
+  text-decoration: none;
 }
 
-#account-button {
+.account-button {
   background-color: #5c794d;
   border-radius: 9999px;
   border: 2px white;
   color: white;
   padding: 10px;
+  text-decoration: none;
 }
 
 .user_container {
@@ -42,11 +36,15 @@
 }
 
 .field label, i {
-  margin: 10px;
+  font-style: normal;
 }
 
 .profile_container {
   margin: 0 200px;
+}
+
+.profile_container h2 {
+  margin-top: 10px;
 }
 
 .profile_container .common_th {

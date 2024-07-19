@@ -34,6 +34,21 @@ footer {
   margin-top: 20px;
 }
 
+@media (max-width: 430px) {
+  .logo {
+    margin-top: 5px;
+    height: 20px;
+  }
+
+  header {
+    margin-bottom: 20px;
+  }
+
+  footer {
+    margin-top: 30px;
+  }
+}
+
 // shared/flash
 .notice {
   border-radius: 9999px;
@@ -54,6 +69,12 @@ footer {
   text-align: center;
 }
 
+@media (max-width: 430px) {
+  .notice, .alert {
+    padding: 10px;
+  }
+}
+
 // shared/login register
 .header_nav {
   display: flex;
@@ -67,8 +88,23 @@ footer {
   justify-content: end;
 }
 
-.register {
+.register_btn {
   text-decoration: none;
+}
+
+@media (max-width: 430px) {
+  .header_nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 5px;
+  }
+
+  .header_content {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    width: 100%;
+  }
 }
 
 // common
@@ -189,4 +225,14 @@ ul {
   border-radius: 10px;
   font-weight: bold;
   color: white;
+}
+
+@media (max-width: 430px) {
+  .search_container {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 65px
+    
+  }
 }

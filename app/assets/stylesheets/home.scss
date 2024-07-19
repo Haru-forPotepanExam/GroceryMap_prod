@@ -24,3 +24,19 @@
 .home_container p {
   color: #337e55;
 }
+
+@media (max-width: 1024px) {
+  .explanation {
+    height: 400px;
+  }
+}
+
+@media (max-width: 430px) {
+  .explanation {
+    height: 300px;
+  }
+
+  .home_container {
+    width: 70%;
+  }
+}

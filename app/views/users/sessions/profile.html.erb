@@ -1,32 +1,21 @@
 <div class="profile_container">
   <nav>
-    <button id="profile-button">プロフィール編集</button>
-    <button id="account-button">アカウント編集</button>
+    <%= link_to "プロフィール", profile_path, class:"profile-button" %>
+    <%= link_to "アカウント編集", edit_user_registration_path, class:"account-button"  %>
   </nav>
-  <div id="user-info">
-    <div class="table_container">
-      <div class="user_container">
-        <h2>プロフィール</h2>
-        <table>
-          <tr>
-            <th class="common_th">ユーザー名：</th>
-            <td class="common_td"><%= @user.name %> </td>
-          </tr>
-          <tr>
-            <th class="common_th">メールアドレス：</th>
-            <td class="common_td"><%= @user.email %></td>
-          </tr>
-        </table>
-      </div>
+  <div class="table_container">
+    <div class="user_container">
+      <h2>プロフィール</h2>
+      <table>
+        <tr>
+          <th class="common_th">ユーザー名：</th>
+          <td class="common_td"><%= @user.name %> </td>
+        </tr>
+        <tr>
+          <th class="common_th">メールアドレス：</th>
+          <td class="common_td"><%= @user.email %></td>
+        </tr>
+      </table>
     </div>
   </div>
-    
-    <div id="user_content">
-      <%= render 'users/registrations/edit' %>
-      <%= render 'users/registrations/edit_account' %>
-    </div>
-
-
-  <%= javascript_pack_tag 'users' %>
-
 </div>

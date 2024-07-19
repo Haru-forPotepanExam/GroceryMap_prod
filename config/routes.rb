@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   }
   
   devise_scope :user do
-    get 'edit_account', to: 'users/registrations#edit_account'
     get 'profile', to:'users/sessions#profile'
   end
 

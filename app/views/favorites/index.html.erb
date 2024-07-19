@@ -16,18 +16,20 @@
           <th class="center_th">最安値（価格）</th>
         </tr>
       </thead>
-        <% @favorite.each do |fav| %>
-        <tr>
-          <td class="common_td"><%= link_to fav.store.name, store_path(fav.store.google_place_id) %></td>
-          <td class="common_td"><%= fav.store.address %></td>
-          <% if fav.store.prices.present? %>
-            <td class="common_td"><%= fav.store.prices.min_price.product.name %></td>
-            <td class="common_td"><%= fav.store.prices.min_price.price_value %></td>
-          <% else %>
-          <td class="common_td">価格情報無し</td>
-          <% end %>
+        <% @favorites.each_with_index do |fav, index| %>
+          <tr>
+            <% store = @stores[index] %>
+            <td class="common_td"><%= link_to store.name, store_path(fav.google_place_id) %></td>
+            <td class="common_td"><%= store.formatted_address %></td>
+            <% if fav.store.prices.present? %>
+              <td class="common_td"><%= fav.store.prices.min_price.product.name %></td>
+              <td class="common_td"><%= fav.store.prices.min_price.price_value %></td>
+            <% else %>
+              <td class="common_td">価格情報無し</td>
+              <td class="common_td">-</td>
+            <% end %>
+          </tr>
         <% end %>
-        </tr>
       </tbody>
     </table>
   </div>

@@ -1,6 +1,9 @@
 class FavoritesController < ApplicationController
   def index
-    @favorite = current_user.favorites
+    @favorites = current_user.favorites
+    @stores = @favorites.map do |fav|
+      Client.spot(fav.google_place_id, language: 'ja')
+    end
   end
 
   def create

@@ -97,6 +97,32 @@ table {
   .store-search {
     width: 90%;
   }
+
+  .map_container {
+    height: 100%;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+
+  #map {
+    height: 70%;
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  #listing {
+    width: 100%;
+    height: 30%;
+    overflow: auto;
+    cursor: pointer;
+    overflow-x: hidden;
+  }
+
+  #resultsTable {
+    width: 100%;
+  }
 }
 
 // store/show

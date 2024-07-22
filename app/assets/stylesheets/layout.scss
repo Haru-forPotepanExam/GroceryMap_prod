@@ -35,6 +35,11 @@ footer {
 }
 
 @media (max-width: 430px) {
+  .main_container {
+    height: 100%;
+    margin: 10px;
+  }
+
   .logo {
     margin-top: 5px;
     height: 20px;

@@ -35,9 +35,11 @@
         </div>
 
         <div class="field">
-          <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+          <%= f.label :current_password %>
+          <i class="info-text">(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br>
           <%= f.password_field :current_password, autocomplete: "current-password" %>
         </div>
+        <i class="info-text_for_media">(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i>
 
         <div class="actions">
           <%= f.submit t('.update') %>

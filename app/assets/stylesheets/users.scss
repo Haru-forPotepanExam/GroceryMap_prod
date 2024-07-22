@@ -55,3 +55,35 @@
   display: flex;
   justify-content: space-between;
 }
+
+.info-text_for_media {
+  display: none;
+}
+
+@media (max-width: 430px) {
+  .profile_container {
+    margin: 10px 10px;
+  }
+
+  .profile_container nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-button {
+    margin: 10px;
+  }
+
+  .account-button {
+    margin: 10px;
+  }
+
+  .info-text {
+    display: none;
+  }
+
+  .info-text_for_media {
+    font-size: small;
+    display: block;
+  }
+}

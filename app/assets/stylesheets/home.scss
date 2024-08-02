@@ -25,6 +25,11 @@
   color: #337e55;
 }
 
+.small_font {
+  font-size: small;
+  color: #808080 !important;
+}
+
 @media (max-width: 1024px) {
   .explanation {
     height: 400px;

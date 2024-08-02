@@ -3,7 +3,7 @@ class StoresController < ApplicationController
     @store = Client.spot(params[:google_place_id], language: 'ja')
     @google_place_id = @store.place_id
     @store_name = @store.name
-    @favStore = Store.find_or_initialize_by(google_place_id: params[:google_place_id])
+    @fav_store = Store.find_or_initialize_by(google_place_id: params[:google_place_id])
 
     @category1 = Product.where(category_id: 1)
     @category2 = Product.where(category_id: 2)

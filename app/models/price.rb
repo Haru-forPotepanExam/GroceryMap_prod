@@ -15,8 +15,6 @@ class Price < ApplicationRecord
     if weight.present?
       gram_price = price_value / weight * 100
       gram_price.round
-    else
-      gram_price = nil
     end
   end
 
@@ -24,8 +22,6 @@ class Price < ApplicationRecord
     if quantity.present?
       quantity_price = price_value / quantity
       quantity_price.round
-    else
-      quantity_price = nil
     end
   end
 
@@ -41,7 +37,7 @@ class Price < ApplicationRecord
 
   def weight_validity
     if weight.present?
-      if weight <= 100 && !weight.is_a?(Integer)
+      if !weight.is_a?(Integer) || weight <= 99
         errors.add(:weight, "は100グラム以上、かつグラム単位で入力してください。")
       end
     end
@@ -49,17 +45,17 @@ class Price < ApplicationRecord
 
   def quantity_validity
     if quantity.present?
-      if quantity <= 1 && !quantity.is_a?(Integer)
+      if !quantity.is_a?(Integer) || quantity <= 0
         errors.add(:quantity, "は1以上の数値を入力してください。")
       end
     end
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    %w[created_at google_place_id id memo price_value product_id quantity updated_at user_id weight]
+  def self.ransackable_attributes(options = {})
+    %w(created_at google_place_id id memo price_value product_id quantity updated_at user_id weight)
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    %w[product]
+  def self.ransackable_associations(options = {})
+    %w(product)
   end
 end

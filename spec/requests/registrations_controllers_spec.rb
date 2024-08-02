@@ -35,19 +35,19 @@ RSpec.describe "RegistrationsControllers", type: :request do
         before do
           post user_registration_path, params: { user: invalid_name_params }
         end
-  
+
         it "リクエストが失敗すること" do
           expect(response).not_to have_http_status(303)
         end
-  
+
         it "認証メールが送信されないこと" do
           expect(ActionMailer::Base.deliveries.size).to eq(0)
         end
-  
+
         it "ユーザーが作成されないこと" do
           expect(User.count).to eq(0)
         end
-  
+
         it "エラーが発生すること" do
           expect(response.body).to include "エラーが発生したため ユーザー は保存されませんでした。"
         end

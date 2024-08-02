@@ -22,9 +22,9 @@ function initMap() {
   autocomplete = new google.maps.places.Autocomplete(
     document.getElementById("autocomplete"),
     {
-      types: ["subway_station", "supermarket"],
       componentRestrictions: { country: "jp" },
-      fields: ["geometry"],
+      fields: ["place_id", "geometry", "name"],
+      types: ['supermarket', 'subway_station', 'train_station'],
     },
   );
   places = new google.maps.places.PlacesService(map);
@@ -46,7 +46,8 @@ function onPlaceChanged() {
 function search() {
   const search = {
     bounds: map.getBounds(),
-    types: ["supermarket"],
+    types: ["grocery_store", 'supermarket'], 
+    keyword: ["grocery", "supermarket"],
   };
 
   places.nearbySearch(search, (results, status, pagination) => {

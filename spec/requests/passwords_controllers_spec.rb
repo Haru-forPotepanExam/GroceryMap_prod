@@ -21,7 +21,8 @@ RSpec.describe "PasswordsControllers", type: :request do
     before do
       token = user.send_reset_password_instructions
       @reset_password_token = token
-      put user_password_path, params: { user: { reset_password_token: @reset_password_token, password: "newpassword", password_confirmation: "newpassword" } }
+      put user_password_path,
+params: { user: { reset_password_token: @reset_password_token, password: "newpassword", password_confirmation: "newpassword" } }
     end
 
     it "リクエストが成功すること" do

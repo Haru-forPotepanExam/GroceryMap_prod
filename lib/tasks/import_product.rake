@@ -19,6 +19,7 @@ namespace :import do
       puts "completed!!"
     rescue ActiveModel::UnknownAttributeError => invalid
       puts "raised error : unknown attribute"
+      Rails.logger.error "Invalid attributes: #{invalid.message}"
     end
   end
 end

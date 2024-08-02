@@ -2,18 +2,24 @@ require 'rails_helper'
 
 RSpec.describe "Favorites", type: :request do
   let(:user) { create(:user) }
-  let(:store) { create(:store) }
-  let(:fav_store) { create(:favorite, user: user, google_place_id: store.google_place_id) }
-  let(:other_store) { create(:store, name: "unfavorite_store") }
+  let(:store) { create(:store, name: "fav_store", google_place_id: "favorite_store_1") }
+  let!(:fav_store) { create(:favorite, user_id: user.id, google_place_id: store.google_place_id) }
+  let!(:other_store) { create(:store, name: "unfavorite_store", google_place_id: "unfavorite_store_1") }
 
   describe "GET /index" do
     before do
       sign_in user
+      allow(Client).to receive(:spot).and_return(
+        OpenStruct.new(
+          placeid: "favorite_store_1",
+          name: "fav_store",
+          formatted_address: "123 Tokyo St"
+        )
+      )
       get my_stores_favorites_path
     end
 
     it "レスポンスを返すこと" do
-      get "/favorites/index"
       expect(response).to have_http_status(200)
     end
 
@@ -29,22 +35,22 @@ RSpec.describe "Favorites", type: :request do
   describe "POST /create" do
     before do
       sign_in user
-      post favorites_path, params: { store_google_place_id: store.google_place_id }
+      post store_favorites_path(store_google_place_id: store.google_place_id)
     end
 
     it "ストアをお気に入りした後に元の画面にリダイレクトされること" do
-      expect(response).to redirect_to(request.referer)
+      expect(response).to redirect_to(store_path(google_place_id: store.google_place_id))
     end
   end
 
   describe "DELETE /destroy" do
     before do
       sign_in user
-      delete favorite_path(store_google_place_id: store.google_place_id)
+      delete store_favorites_path(store_google_place_id: store.google_place_id)
     end
 
     it "ストアをお気に入りから削除した際に元の画面にリダイレクトされること" do
-      expect(response).to redirect_to(request.referer)
+      expect(response).to redirect_to(store_path(google_place_id: store.google_place_id))
     end
   end
 end

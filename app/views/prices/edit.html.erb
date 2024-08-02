@@ -4,6 +4,9 @@
     <span class="title_style"><%= @product.name %></span> の価格情報を編集する</p>
     <% if user_signed_in? %>
       <%= form_with(model: @price, local: true) do |f| %>
+        <%= f.hidden_field :google_place_id, value: @price.google_place_id %>
+        <%= f.hidden_field :product_id, value: @price.product_id %>
+      
         <div class="field">
           <%= f.label :price_value, "商品価格:" %>
           <%= f.number_field :price_value %>

@@ -8,7 +8,7 @@
         <%= form_with(model: @product, loocal: true) do |f| %>
           <div class="field">
             <%= f.label :category_id, "カテゴリー：", class:"label_style" %>
-            <%= f.select :category_id, [["野菜", "1"], ["穀物(米・シリアル等)", "2"], ["水産物", "3"], ["肉", "4"], ["卵・乳製品・大豆製品", "5"], ["果物", "6"], ["粉類", "7"], ["その他", "8"]], include_blank: "選択してください" %>
+            <%= f.select :category_id, [["野菜", "1"], ["穀物（米・シリアル等）", "2"], ["水産物", "3"], ["畜産物(肉)", "4"], ["卵・乳製品・大豆製品", "5"], ["果物", "6"], ["粉類", "7"], ["その他", "8"]], include_blank: "選択してください" %>
           </div>
 
           <div class="field">

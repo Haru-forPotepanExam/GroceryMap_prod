@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_05_084722) do
+ActiveRecord::Schema.define(version: 2024_08_02_111712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2024_07_05_084722) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["name"], name: "index_products_on_name", unique: true
   end
 
   create_table "stores", primary_key: "google_place_id", id: :string, force: :cascade do |t|

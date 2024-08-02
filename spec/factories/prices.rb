@@ -1,12 +1,11 @@
 FactoryBot.define do
   factory :price do
     price_value { 1 }
-    calculated_value { 1.5 }
     quantity { 1 }
-    weight { 1 }
+    weight { 100 }
     memo { "MyText" }
-    user { nil }
-    product { nil }
-    store { nil }
+    user_id { 1 }
+    product_id { 1 }
+    google_place_id { "google_place_id1" }
   end
 end

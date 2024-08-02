@@ -9,7 +9,7 @@ RSpec.describe "SessionsControllers", type: :request do
       before do
         post user_session_path, params: { user: { email: user.email, password: user.password } }
       end
-  
+
       it "リクエストが成功すること" do
         expect(response).to have_http_status(303)
       end
@@ -17,7 +17,7 @@ RSpec.describe "SessionsControllers", type: :request do
         expect(response).to redirect_to(profile_path)
       end
     end
-  
+
     context "パラメーターが不正な場合" do
       before do
         post user_session_path, params: { user: invalid_user_params }

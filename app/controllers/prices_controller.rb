@@ -42,17 +42,20 @@ class PricesController < ApplicationController
 
   def edit
     @price = Price.find(params[:id])
-    @store = Store.find(params[:google_place_id])
+    @store = Store.find_by(google_place_id: params[:google_place_id])
     @product = Product.find(params[:product_id])
   end
 
   def update
     @price = Price.find(params[:id])
+    @store = Store.find(price_params[:google_place_id])
+    @product = Product.find(price_params[:product_id])
+
     if @price.update(price_params)
       flash[:notice] = "価格情報を更新しました。"
       redirect_to own_prices_path
     else
-      flash[:notie] = "価格情報の更新に失敗しました。"
+      flash[:alert] = "価格情報の更新に失敗しました。"
       render "edit"
     end
   end

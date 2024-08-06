@@ -1,0 +1,19 @@
+<div class="header_nav">
+  <h1><%= link_to image_tag("GroceryMap_logo2.jpg", class:"logo"), :root %></h1>
+
+  <div class="header_content">
+    <%= render 'shared/search', q: @q, url: result_path %>
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= current_user.name %>
+      </button>
+      <ul class="dropdown-menu">
+        <li><%= link_to "マイページ", profile_path, class: "dropdown-item" %></li>
+        <li><%= link_to "お気に入り店舗", my_stores_favorites_path, class: "dropdown-item" %></li>
+        <li><%= link_to "価格情報投稿履歴", own_prices_path, class: "dropdown-item" %></li>
+        <li><%= link_to "ログアウト", :destroy_user_session, method: :delete, class: "dropdown-item" %></li>
+      </ul>
+    </div>
+  </div>
+</div>

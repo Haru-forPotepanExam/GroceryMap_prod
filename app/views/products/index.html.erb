@@ -1,0 +1,248 @@
+<div class="product_cntainer">
+  <h2 id="product_top">商品一覧</h2>
+
+  <div class="category_navigation">
+    <a href="#category1", id="category">野菜</a>
+    <a href="#category2", id="category">穀物</a>
+    <a href="#category3", id="category">水産物</a>
+    <a href="#category4", id="category">肉</a>
+    <a href="#category5", id="category">卵・乳製品・大豆製品</a>
+    <a href="#category6", id="category">果物</a>
+    <a href="#category7", id="category">粉類</a>
+    <a href="#category8", id="category">その他</a>
+    <br>
+    <%= link_to "商品を追加する", new_product_path(store_google_place_id: @google_place_id), id:"category" %>
+  </div>
+
+  <h3 id="category1">野菜</h3>
+  <div class="category_items">
+    <table class="test_category1">
+      <thead>
+        <tr class="each_item">
+          <th class="center_th">商品名</th>
+          <th class="center_th">最安値（全国）</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category1.each do |product| %>
+        <tr class="each_item">
+          <td class="common_td"><%= product.name%></td>
+          <% if product.prices.present? %>
+            <td class="common_td"><%= product.prices.min_price.price_value %>
+          <% else %>
+            <td class="common_td">価格情報なし</td>
+          <% end %>
+          <td class="common_td"><%= link_to "商品価格を確認する", store_prices_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+          <td class="common_td"><%= link_to "商品価格を投稿する" ,new_store_price_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="#product_top", class="back_link">ページトップに戻る</a>
+  </div>
+
+  <h3 id="category2">穀物(米・シリアル等)</h3>
+  <div class="category_items">
+    <table class="test_category2">
+      <thead>
+        <tr class="each_item">
+          <th class="center_th">商品名</th>
+          <th class="center_th">最安値</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category2.each do |product| %>
+        <tr class="each_item">
+          <td class="common_td"><%= product.name%></td>
+          <% if product.prices.present? %>
+            <td class="common_td"><%= product.prices.min_price.price_value %>
+          <% else %>
+            <td class="common_td">価格情報なし</td>
+          <% end %>
+          <td class="common_td"><%= link_to "商品価格を確認する", store_prices_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+          <td class="common_td"><%= link_to "商品価格を投稿する" ,new_store_price_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="#product_top", class="back_link">ページトップに戻る</a>
+  </div>
+
+  <h3 id="category3">水産物</h3>
+  <div class="category_items">
+    <table class="test_category3">
+      <thead>
+        <tr class="each_item">
+          <th class="center_th">商品名</th>
+          <th class="center_th">最安値</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category3.each do |product| %>
+        <tr class="each_item">
+          <td class="common_td"><%= product.name%></td>
+          <% if product.prices.present? %>
+            <td class="common_td"><%= product.prices.min_price.price_value %>
+          <% else %>
+            <td class="common_td">価格情報なし</td>
+          <% end %>
+          <td class="common_td"><%= link_to "商品価格を確認する", store_prices_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+          <td class="common_td"><%= link_to "商品価格を投稿する" ,new_store_price_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="#product_top", class="back_link">ページトップに戻る</a>
+  </div>
+
+  <h3 id="category4">肉</h3>
+  <div class="category_items">
+    <table class="test_category4">
+      <thead>
+        <tr class="each_item">
+          <th class="center_th">商品名</th>
+          <th class="center_th">最安値</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category4.each do |product| %>
+        <tr class="each_item">
+          <td class="common_td"><%= product.name%></td>
+          <% if product.prices.present? %>
+            <td class="common_td"><%= product.prices.min_price.price_value %>
+          <% else %>
+            <td class="common_td">価格情報なし</td>
+          <% end %>
+          <td class="common_td"><%= link_to "商品価格を確認する", store_prices_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+          <td class="common_td"><%= link_to "商品価格を投稿する" ,new_store_price_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="#product_top", class="back_link">ページトップに戻る</a>
+  </div>
+
+  <h3 id="category5">卵・乳製品・大豆製品</h3>
+  <div class="category_items">
+    <table class="test_category5">
+      <thead>
+        <tr class="each_item">
+          <th class="center_th">商品名</th>
+          <th class="center_th">最安値</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category5.each do |product| %>
+        <tr class="each_item">
+          <td class="common_td"><%= product.name%></td>
+          <% if product.prices.present? %>
+            <td class="common_td"><%= product.prices.min_price.price_value %>
+          <% else %>
+            <td class="common_td">価格情報なし</td>
+          <% end %>
+          <td class="common_td"><%= link_to "商品価格を確認する", store_prices_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+          <td class="common_td"><%= link_to "商品価格を投稿する" ,new_store_price_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="#product_top", class="back_link">ページトップに戻る</a>
+  </div>
+
+  <h3 id="category6">果物</h3>
+  <div class="category_items">
+    <table class="test_category6">
+      <thead>
+        <tr class="each_item">
+          <th class="center_th">商品名</th>
+          <th class="center_th">最安値</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category6.each do |product| %>
+        <tr class="each_item">
+          <td class="common_td"><%= product.name%></td>
+          <% if product.prices.present? %>
+            <td class="common_td"><%= product.prices.min_price.price_value %>
+          <% else %>
+            <td class="common_td">価格情報なし</td>
+          <% end %>
+          <td class="common_td"><%= link_to "商品価格を確認する", store_prices_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+          <td class="common_td"><%= link_to "商品価格を投稿する" ,new_store_price_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="#product_top", class="back_link">ページトップに戻る</a>
+  </div>
+
+  <h3 id="category7">粉類(小麦粉等)</h3>
+  <div class="category_items">
+    <table class="test_category7">
+      <thead>
+        <tr class="each_item">
+          <th class="center_th">商品名</th>
+          <th class="center_th">最安値</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category7.each do |product| %>
+        <tr class="each_item">
+          <td class="common_td"><%= product.name%></td>
+          <% if product.prices.present? %>
+            <td class="common_td"><%= product.prices.min_price.price_value %>
+          <% else %>
+            <td class="common_td">価格情報なし</td>
+          <% end %>
+          <td class="common_td"><%= link_to "商品価格を確認する", store_prices_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+          <td class="common_td"><%= link_to "商品価格を投稿する" ,new_store_price_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="#product_top", class="back_link">ページトップに戻る</a>
+  </div>
+
+  <h3 id="category8">その他</h3>
+  <div class="category_items">
+    <table class="test_category8">
+      <thead>
+        <tr class="each_item">
+          <th class="center_th">商品名</th>
+          <th class="center_th">最安値</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @category8.each do |product| %>
+        <tr class="each_item">
+          <td class="common_td"><%= product.name%></td>
+          <% if product.prices.present? %>
+            <td class="common_td"><%= product.prices.min_price.price_value %>
+          <% else %>
+            <td class="common_td">価格情報なし</td>
+          <% end %>
+          <td class="common_td"><%= link_to "商品価格を確認する", store_prices_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+          <td class="common_td"><%= link_to "商品価格を投稿する" ,new_store_price_path(store_google_place_id: @google_place_id, product_id: product.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <a href="#product_top", class="back_link">ページトップに戻る</a>
+  </div>
+</div>

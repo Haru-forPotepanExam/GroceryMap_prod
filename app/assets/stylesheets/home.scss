@@ -1,3 +1,47 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.explanation {
+  background-image: url('GroceryMap_logo1.jpg');
+  background-size: 55%;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 500px;
+  width: 100%;
+  position: relative;
+}
+
+.home_container {
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.home_container p {
+  color: #337e55;
+}
+
+.small_font {
+  font-size: small;
+  color: #808080 !important;
+}
+
+@media (max-width: 1024px) {
+  .explanation {
+    height: 400px;
+  }
+}
+
+@media (max-width: 430px) {
+  .explanation {
+    height: 300px;
+  }
+
+  .home_container {
+    width: 70%;
+  }
+}

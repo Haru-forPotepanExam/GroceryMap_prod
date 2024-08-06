@@ -1,0 +1,36 @@
+<div class="table_container">
+  <h3>お気に入り店舗一覧</h3>
+
+  <div class="search_favorite">
+    <p>お気に入り店舗から検索</p>
+    <%= render 'shared/search', q: @own_q, url: own_prices_result_prices_path %>
+  </div>
+
+    <table class="fav_items">
+      <tbody>
+        <thead>
+        <tr>
+          <th class="center_th">店舗名</th>
+          <th class="center_th">住所</th>
+          <th class="center_th">最安値（商品名）</th>
+          <th class="center_th">最安値（価格）</th>
+        </tr>
+      </thead>
+        <% @favorites.each_with_index do |fav, index| %>
+          <tr>
+            <% store = @stores[index] %>
+            <td class="common_td"><%= link_to store.name, store_path(fav.google_place_id) %></td>
+            <td class="common_td"><%= store.formatted_address %></td>
+            <% if fav.store.prices.present? %>
+              <td class="common_td"><%= fav.store.prices.min_price.product.name %></td>
+              <td class="common_td"><%= fav.store.prices.min_price.price_value %></td>
+            <% else %>
+              <td class="common_td">価格情報無し</td>
+              <td class="common_td">-</td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

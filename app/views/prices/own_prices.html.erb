@@ -1,0 +1,28 @@
+<div class="table_container">
+  <h3>商品価格投稿履歴</h3>
+
+  <% if @prices.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th class="center_th">店舗名</th>
+          <th class="center_th">商品名</th>
+          <th class="center_th">商品価格</th>
+          <th class="center_th"></th>
+          <th class="center_th"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @prices.each do |price| %>
+          <tr>
+            <td class="common_td"><%= link_to price.store.name, store_path(price.store.google_place_id) %></td>
+            <td class="common_td"><%= price.product.name %></td>
+            <td class="common_td"><%= price.price_value %></td>
+            <td class="common_td"><%= link_to "編集", edit_price_path(price, product_id: price.product.id, google_place_id: price.store.google_place_id) %></td>
+            <td class="common_td"><%= link_to "消去", price_path(price), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

@@ -84,3 +84,4 @@ production:
   database: grocerymap_production
   username: grocerymap
   password: <%= ENV['GROCERYMAP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

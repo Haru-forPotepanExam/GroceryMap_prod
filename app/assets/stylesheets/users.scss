@@ -1,0 +1,89 @@
+.profile-button {
+  background-color: #4ca748;
+  border-radius: 9999px;
+  border: 2px white;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.account-button {
+  background-color: #5c794d;
+  border-radius: 9999px;
+  border: 2px white;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.user_container {
+  margin: auto;
+}
+
+.user_container h2 {
+  margin-bottom: 30px;
+}
+
+.link_container {
+  margin-top: 15px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_container .field {
+  color: black;
+}
+
+.field label, i {
+  font-style: normal;
+}
+
+.profile_container {
+  margin: 0 200px;
+}
+
+.profile_container h2 {
+  margin-top: 10px;
+}
+
+.profile_container .common_th {
+  padding: 10px;
+}
+
+.cancel_account {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-text_for_media {
+  display: none;
+}
+
+@media (max-width: 430px) {
+  .profile_container {
+    margin: 10px 10px;
+  }
+
+  .profile_container nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-button {
+    margin: 10px;
+  }
+
+  .account-button {
+    margin: 10px;
+  }
+
+  .info-text {
+    display: none;
+  }
+
+  .info-text_for_media {
+    font-size: small;
+    display: block;
+  }
+}

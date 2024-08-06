@@ -1,0 +1,47 @@
+<div class="table_container">
+  <div class="form_main_container">
+    <p class="other_style"><span class="title_style"><%= @store.name %></span> の 
+    <span class="title_style"><%= @product.name %></span> の価格情報を投稿する</p>
+
+    <%= render "shared/error", obj: @price %>
+
+    <% if user_signed_in? %>
+      <%= form_with(model: @price, url: store_prices_path(store_google_place_id: @google_place_id), local: true) do |f| %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <%= f.hidden_field :google_place_id, value: @google_place_id %>
+        <%= f.hidden_field :store_name, value: @store.name %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+
+        <div class="field">
+          <%= f.label :price_value, "商品価格（円）:" %>
+          <%= f.number_field :price_value, placeholder: "例）100" %>
+        </div>
+
+        <p class="caption_small">*個数、またはグラム数を入力してください。<br>
+          *例）3個入りのりんごの価格が300円の場合、個数に「3」を入力</p>
+  
+        <div class="field">
+          <%= f.label :quantity, "個数（個）：" %>
+          <%= f.number_field :quantity, placeholder: "例）3" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :weight, "グラム（g）：" %>
+          <%= f.number_field :weight, placeholder: "例）200"  %>
+        </div>
+
+        <div class="field">
+          <%= f.label :memo, "備考：" %><br>
+          <%= f.text_area :memo, placeholder: "150字以内で入力してください" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "送信", class:"form_btn" %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>価格情報の投稿にはログインが必要です。</p>
+    <% end %>
+    <%= link_to "戻る", :back, class:"back_link" %>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+// Place all the styles related to the favorites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.unfav {
+  background-color: #689931;
+  border: 5px solid #689931;
+  border-radius: 50%;
+  font-size: large;
+  color: white;
+}
+
+.faved {
+  background-color: #3b5b2e;
+  border: 5px solid #3b5b2e;
+  border-radius: 50%;
+  font-size: large;
+  color: white;
+}
+
+.search_favorite {
+  display: flex;
+  justify-content: center;
+}
+
+.search_favorite p {
+  margin: 0 10px;
+}
+
+.fav_items {
+  margin-top: 20px;
+}
